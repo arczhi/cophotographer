@@ -32,5 +32,5 @@ echo "🌐 启动服务..."
 echo "   访问地址: http://localhost:8000"
 echo "   按 Ctrl+C 停止服务"
 echo ""
-
-python app.py
+echo "   后台运行，日志输出到 cophotographer.log"
+nohup python app.py > cophotographer.log 2>&1 &
