@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>最适合小白入门的相机模拟器-CoPhotographer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📷 你的摄影拍档</h1>
+            <p class="subtitle">和AI一起学习摄影三要素 光圈·快门·ISO </p>
+        </header>
+
+        <div class="camera-body">
+            <!-- 照片预览区 -->
+            <div class="preview-section">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                    <div class="upload-prompt">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>点击上传</p>
+                    </div>
+                </div>
+                <canvas id="previewCanvas" style="display: none;"></canvas>
+            </div>
+
+            <!-- 相机控制面板 -->
+            <div class="controls-section">
+                <!-- 光圈拨盘 -->
+                <div class="dial-group">
+                    <label class="dial-label">光圈</label>
+                    <div class="dial" id="apertureDial">
+                        <div class="dial-center">
+                            <div class="dial-value" id="apertureValue">f/5.6</div>
+                        </div>
+                        <div class="dial-markers"></div>
+                    </div>
+                    <div class="scroll-selector" data-param="aperture">
+                        <div class="scroll-list"></div>
+                    </div>
+                </div>
+
+                <!-- 快门拨盘 -->
+                <div class="dial-group">
+                    <label class="dial-label">快门</label>
+                    <div class="dial" id="shutterDial">
+                        <div class="dial-center">
+                            <div class="dial-value" id="shutterValue">1/125</div>
+                        </div>
+                        <div class="dial-markers"></div>
+                    </div>
+                    <div class="scroll-selector" data-param="shutter">
+                        <div class="scroll-list"></div>
+                    </div>
+                </div>
+
+                <!-- ISO拨盘 -->
+                <div class="dial-group">
+                    <label class="dial-label">ISO</label>
+                    <div class="dial" id="isoDial">
+                        <div class="dial-center">
+                            <div class="dial-value" id="isoValue">400</div>
+                        </div>
+                        <div class="dial-markers"></div>
+                    </div>
+                    <div class="scroll-selector" data-param="iso">
+                        <div class="scroll-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快门按钮和主题切换 -->
+            <div class="shutter-section">
+                <button class="shutter-button" id="shutterButton" disabled>
+                    <div class="shutter-ring">
+                        <div class="shutter-center"></div>
+                    </div>
+                    <span class="shutter-text"> </span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="切换相机主题">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                    <span class="theme-name" id="themeName">经典</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 曝光提示 -->
+        <div class="exposure-alert" id="exposureAlert" style="display: none;">
+            <div class="alert-content">
+                <button class="alert-close" id="alertClose">&times;</button>
+                <h3>💡 AI建议</h3>
+                <p id="exposureSuggestion"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>CoPhotographer by arczhi</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
